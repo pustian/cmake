@@ -1,0 +1,53 @@
+#ifndef __VERSION_H_
+#define __VERSION_H_
+
+#include <cstdio>
+#include <cstdlib>
+#include <string>
+
+#define PUSTIAN_VERSION_MAJOR        ${VERSION_MAJOR}
+#define PUSTIAN_VERSION_MINOR        ${VERSION_MINOR}
+#define PUSTIAN_VERSION_MICRO        ${VERSION_MICRO}
+#define PUSTIAN_VERSION_PATCH        @VERSION_PATCH@
+#define PUSTIAN_VERSION_MISC_SUFFIX  "${VERSION_MISC_SUFFIX}"
+// // 需要 cmake/VersionHelper.cmake 中设置
+// #define PUSTIAN_VERSION_MISC_SUFFIX  "${VERSION_STRING}"
+namespace pustian {
+    /** The major version */
+    extern const int version_major;
+    
+    /** The minor version */
+    extern const int version_minor;
+    
+    /** The micro version */
+    extern const int version_micro;
+    
+    /** The patch version (usually not used) */
+    extern const int version_patch;
+    
+    /** */
+    extern const std::string version_misc_suffix;
+    
+    /** version_misc_suffix--> */
+    extern const std::string version_string;
+    
+    // /**
+    //  * Compares the version from this header file with the version of the
+    //  * compiled Hypertable libraries; will exit() if not equal.
+    //  *
+    //  * This function is inlined, otherwise it would not use the header file
+    //  * versions but also those from the compiled libraries.
+    //  */
+    // inline void check_version() {
+    //   if (version_major != PUSTIAN_VERSION_MAJOR ||
+    //       version_minor != PUSTIAN_VERSION_MINOR ||
+    //       version_micro != PUSTIAN_VERSION_MICRO ||
+    //       version_patch != PUSTIAN_VERSION_PATCH ||
+    //       version_misc_suffix != PUSTIAN_VERSION_MISC_SUFFIX) {
+    //     std::printf("header/library version mismatch header:%s  \nlibrary:%s\n", PUSTIAN_VERSION_STRING, version_string());
+    //     exit(1);
+    //   }
+    // }
+}
+
+#endif
